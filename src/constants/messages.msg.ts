@@ -1,0 +1,1 @@
+export const ACCOUNT_IN_MEMORY = "Account in memory...";

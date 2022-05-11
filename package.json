@@ -1,0 +1,38 @@
+{
+  "name": "styrk-loyalty-commons",
+  "version": "0.0.1",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc",
+    "start": "tsc && node lib/index.js",
+    "fix": "eslint --ext .js,.ts ."
+  },
+  "engines": {
+    "node": ">=11.14"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "express": "^4.17.1",
+    "@google-cloud/firestore": "^5.0.2"
+  },
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.2",
+    "@types/cookies": "^0.7.7",
+    "@types/cors": "^2.8.12",
+    "@types/dateformat": "^5.0.0",
+    "@types/express": "^4.17.13",
+    "@types/express-request-id": "^1.4.3",
+    "@types/node": "^17.0.23",
+    "@typescript-eslint/eslint-plugin": "^5.22.0",
+    "eslint": "8.15.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-promise": "6.0.0",
+    "prettier": "2.6.2",
+    "typescript": "^4.6.4"
+  }
+}
