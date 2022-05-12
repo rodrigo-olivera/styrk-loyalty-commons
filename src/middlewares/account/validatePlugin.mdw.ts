@@ -4,8 +4,7 @@ import { NO_PLUGIN_DATA_FOUND, PLUGIN_ID_IS_REQUIRED, PLUGIN_NOT_ACTIVE } from "
 
 import { PluginData } from "../../types/AccountData";
 
-const validatePlugin = async (req: Request, res: Response, next: NextFunction) => {
-    const pluginId = res?.locals?.pluginId;
+const validatePlugin = async (req: Request, res: Response, next: NextFunction, pluginId: string) => {
     const plugins = res?.locals?.accountData?.plugins;
 
     try {
@@ -17,6 +16,7 @@ const validatePlugin = async (req: Request, res: Response, next: NextFunction) =
         if (!plugin) throw new Error(NO_PLUGIN_DATA_FOUND);
         if (!plugin.active) throw new Error(PLUGIN_NOT_ACTIVE);
 
+        res.locals.plugin = plugin;
     } catch (error) {
         next(error)
     }

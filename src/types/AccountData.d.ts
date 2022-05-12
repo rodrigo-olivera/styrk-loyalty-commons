@@ -12,5 +12,14 @@ export interface AccountData {
 
 export interface PluginData {
     name: string;
+    id:string;
     active: boolean;
+    searchStrategy: SearchStrategy;
+}
+
+export const enum SearchStrategy {
+    EMAIL = "EMAIL",
+    PHONE = "PHONE",
+    UID = "UID",
+    GID = "GID",
 }

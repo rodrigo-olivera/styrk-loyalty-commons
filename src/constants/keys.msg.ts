@@ -7,3 +7,6 @@ export const USER = 'user';
 export const PHONE = 'phone';
 export const NUMBER = 'number';
 export const GID = 'gid';
+
+// Plugin Ids
+export const VTEX = 'VTEX';
