@@ -4,7 +4,7 @@ import { ACCOUNT_IS_REQUIRED, ACCOUNT_NOT_ACTIVE, ACCOUNT_NOT_FOUND, API_KEY_IS_
 import { ACCOUNT, ACCOUNTS } from "../../constants/routes.msg";
 
 import { FIVE_MIN } from "../../constants/operations.msg";
-import { Firestore } from "@google-cloud/firestore";
+import { DocumentReference, Firestore } from "@google-cloud/firestore";
 
 const validateAccount = async (app: express.Express, firestore: Firestore, req: Request, res: Response, next: NextFunction) => {
     const apiKey = req?.query?.apiKey || req?.headers?.apikey || null;
@@ -17,7 +17,7 @@ const validateAccount = async (app: express.Express, firestore: Firestore, req: 
         if (!account) throw new Error(ACCOUNT_IS_REQUIRED);
         if (!apiKey) throw new Error(API_KEY_IS_REQUIRED);
 
-        const accountRef = firestore.collection(ACCOUNTS).doc(account);
+        const accountRef: DocumentReference = firestore.collection(ACCOUNTS).doc(account);
         const cachedAccountData = app?.locals?.[accountKey];
 
         if (cachedAccountData) {
@@ -40,7 +40,7 @@ const validateAccount = async (app: express.Express, firestore: Firestore, req: 
             if (!active) throw new Error(ACCOUNT_NOT_ACTIVE);
             if (!hasPermission) throw new Error(UNAUTHORIZED);
 
-            app.locals[accountKey] = { ...accountData, account: accountRef?.id, accountRef, timestamp: currentTime };
+            app.locals[accountKey] = { ...accountData, account, accountRef, timestamp: currentTime };
             res.locals.accountData = accountData
         }
 
