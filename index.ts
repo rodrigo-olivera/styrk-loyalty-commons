@@ -3,7 +3,8 @@ import validateAccount from "./src/middlewares/account/validateAccount.mdw";
 import logErrors from "./src/middlewares/error/logErrors.mdw";
 import errorHandler from "./src/middlewares/error/errorHandler.mdw";
 import response from "./src/middlewares/response.mdw";
-export { validateAccount, logErrors, errorHandler, response };
+import validatePlugin from "./src/middlewares/account/validatePlugin.mdw";
+export { validateAccount, validatePlugin, logErrors, errorHandler, response };
 
 // Utils
 import sanitizeJson from "./src/utils/sanitizeJson";
