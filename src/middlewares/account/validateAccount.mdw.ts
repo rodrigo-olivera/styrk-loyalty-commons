@@ -7,8 +7,8 @@ import { FIVE_MIN } from "../../constants/operations.msg";
 import { Firestore } from "@google-cloud/firestore";
 
 const validateAccount = async (app: express.Express, firestore: Firestore, req: Request, res: Response, next: NextFunction) => {
-    const apiKey = req?.query?.apiKey || null;
-    const account = req?.query?.account as string || null;
+    const apiKey = req?.query?.apiKey || req?.headers?.apikey || null;
+    const account = req?.query?.account as string || req?.headers?.account as string || null;
     const accountKey = `${ACCOUNT}_${apiKey}`;
 
     var currentTime = new Date();
