@@ -13,7 +13,7 @@ import removeSpecialChars from "./src/utils/removeSpecialChars";
 export { sanitizeJson, validateEmail, validatePhoneNumber, removeSpecialChars };
 
 // Types
-export { AccountData } from "./src/types/AccountData";
+export { AccountData, PluginData } from "./src/types/AccountData";
 export { LoyaltyCard } from "./src/types/LoyaltyCard";
 export { SearchParams } from "./src/types/SearchParams";
 export { Transaction, TransactionType, Status } from "./src/types/Transaction";

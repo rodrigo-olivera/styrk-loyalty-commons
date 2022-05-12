@@ -7,4 +7,10 @@ export interface AccountData {
     active: boolean;
     apyKey: string[];
     name: string;
+    plugins?: PluginData[];
+}
+
+export interface PluginData {
+    name: string;
+    active: boolean;
 }

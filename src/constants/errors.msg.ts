@@ -24,3 +24,6 @@ export const INSUFICIENT_BALANCE = JSON.stringify({ message: 'Insufficient balan
 export const TRANSACTION_ID_IS_REQUIRED = JSON.stringify({ message: 'Transaction ID is required', status: 400 });
 export const TRANSACTION_NOT_FOUND = JSON.stringify({ message: 'Transaction not found', status: 500 });
 export const TRANSACTIONS_NOT_FOUND = JSON.stringify({ message: 'Transactions not found', status: 500 });
+export const PLUGIN_ID_IS_REQUIRED = JSON.stringify({ message: 'Plugin ID is required', status: 500 });
+export const NO_PLUGIN_DATA_FOUND = JSON.stringify({ message: 'No plugin data found', status: 500 });
+export const PLUGIN_NOT_ACTIVE = JSON.stringify({ message: 'Plugin not active', status: 500 });

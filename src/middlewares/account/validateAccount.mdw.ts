@@ -41,6 +41,7 @@ const validateAccount = async (app: express.Express, firestore: Firestore, req: 
             if (!hasPermission) throw new Error(UNAUTHORIZED);
 
             app.locals[accountKey] = { ...accountData, account: accountRef?.id, accountRef, timestamp: currentTime };
+            res.locals.accountData = accountData
         }
 
         res.locals.accountRef = accountRef;
