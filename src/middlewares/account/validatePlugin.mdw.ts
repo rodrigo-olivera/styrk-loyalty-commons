@@ -11,7 +11,7 @@ const validatePlugin = async (req: Request, res: Response, next: NextFunction, p
         if (!pluginId) throw new Error(PLUGIN_ID_IS_REQUIRED);
         if (!plugins) throw new Error(NO_PLUGIN_DATA_FOUND);
 
-        const plugin = plugins.find((plugin: PluginData) => plugin.name === pluginId);
+        const plugin = plugins.find((plugin: PluginData) => plugin.pid === pluginId);
 
         if (!plugin) throw new Error(NO_PLUGIN_DATA_FOUND);
         if (!plugin.active) throw new Error(PLUGIN_NOT_ACTIVE);

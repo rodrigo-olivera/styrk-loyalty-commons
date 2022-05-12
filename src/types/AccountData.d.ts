@@ -12,7 +12,7 @@ export interface AccountData {
 
 export interface PluginData {
     name: string;
-    id:string;
+    pid:string;
     active: boolean;
     searchStrategy: SearchStrategy;
 }
