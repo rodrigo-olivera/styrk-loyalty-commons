@@ -8,5 +8,6 @@ export interface LoyaltyCard {
     uid?: string;
     active: boolean;
     isGiftcard?: boolean;
-    name?:string;
+    cardName?:string;
+    expiryDate?:string;
 }
