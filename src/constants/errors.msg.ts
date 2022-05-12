@@ -27,3 +27,4 @@ export const TRANSACTIONS_NOT_FOUND = JSON.stringify({ message: 'Transactions no
 export const PLUGIN_ID_IS_REQUIRED = JSON.stringify({ message: 'Plugin ID is required', status: 500 });
 export const NO_PLUGIN_DATA_FOUND = JSON.stringify({ message: 'No plugin data found', status: 500 });
 export const PLUGIN_NOT_ACTIVE = JSON.stringify({ message: 'Plugin not active', status: 500 });
+export const EMAIL_IS_REQUIRED = JSON.stringify({ message: 'Email is required', status: 400 });
