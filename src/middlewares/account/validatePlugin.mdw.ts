@@ -13,8 +13,6 @@ const validatePlugin = async (req: Request, res: Response, next: NextFunction, p
 
         const plugin = plugins.find((plugin: PluginData) => plugin.pid === pluginId);
 
-        console.log(plugin);
-
         if (!plugin) throw new Error(NO_PLUGIN_DATA_FOUND);
         if (!plugin.active) throw new Error(PLUGIN_NOT_ACTIVE);
 
