@@ -12,6 +12,8 @@ const validateWorkspace = async (app: express.Express, firestore: Firestore, req
 
     var currentTime = new Date();
 
+    console.log(JSON.stringify(req.headers));
+
     try {
         if (!workspaceId) throw new Error(WORKSPACE_IS_REQUIRED);
         if (!userToken) throw new Error(USER_TOKEN_IS_REQUIRED);
