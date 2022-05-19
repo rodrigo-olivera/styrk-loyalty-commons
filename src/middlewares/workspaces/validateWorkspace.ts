@@ -9,6 +9,7 @@ import { WORKSPACES } from "../../constants/routes.msg";
 const validateWorkspace = async (app: express.Express, firestore: Firestore, req: Request, res: Response, next: NextFunction) => {
     const workspaceId = req?.params?.workspaceId || null;
     const userToken = req?.get('x-forwarded-authorization')?.replace('Bearer ', '') || null;
+    const requestId = req?.get('x-request-id') || '';
 
     var currentTime = new Date();
 
@@ -32,11 +33,13 @@ const validateWorkspace = async (app: express.Express, firestore: Firestore, req
         if (cachedWorkspaceData) {
             res.set('x-workspace-cache', 'true');
             res.set('x-workspace-cache-timestamp', cachedWorkspaceData.timestamp.toISOString());
+            res.set('x-request-id', requestId)
         }
 
         if (!cachedWorkspaceData || (new Date(cachedWorkspaceData?.timestamp)?.getTime() + FIVE_MIN) < currentTime.getTime()) {
             res.set('x-workspace-cache', 'false')
             res.set('x-workspace-cache-timestamp', currentTime.toISOString())
+            res.set('x-request-id', requestId)
 
             const workspaceSnapshot = await workspaceRef.get();
 
