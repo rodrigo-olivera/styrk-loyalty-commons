@@ -3,7 +3,7 @@ import { NextFunction, Request, Response } from "express";
 const errorHandler = (err: any, req: Request, res: Response, next: NextFunction) => {
     try {
         const { message, status } = JSON.parse(err.message)
-        console.log('error1', message, status);
+        console.log('error1', message, status, JSON.parse(err.message));
 
         res.status(status || 500);
         res.send(message);
