@@ -8,7 +8,6 @@ const verifyIdToken = async (userToken: string) => {
 
         return { workspaceList, uid };
     } catch (error) {
-        console.log("***", error);
         return { workspaceList: [], uid: null };
     }
 }
