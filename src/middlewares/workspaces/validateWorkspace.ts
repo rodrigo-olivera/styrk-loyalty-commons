@@ -1,10 +1,10 @@
 import { DocumentReference, Firestore } from "@google-cloud/firestore";
 import express, { NextFunction, Request, Response } from "express";
 
-import * as admin from 'firebase-admin';
 import { USER_TOKEN_IS_REQUIRED, WORKSPACE_IS_REQUIRED, WORKSPACE_NOT_ACTIVE, WORKSPACE_NOT_FOUND } from "../../constants/errors.msg";
 import { FIVE_MIN } from "../../constants/operations.msg";
 import { WORKSPACES } from "../../constants/routes.msg";
+import verifyIdToken from "../../utils/verifyIdToken";
 
 const validateWorkspace = async (app: express.Express, firestore: Firestore, req: Request, res: Response, next: NextFunction) => {
     const workspaceId = req?.params?.workspaceId || null;
@@ -20,9 +20,7 @@ const validateWorkspace = async (app: express.Express, firestore: Firestore, req
         const workspaceRef: DocumentReference = firestore.collection(WORKSPACES).doc(workspaceId);
         const cachedWorkspaceData = app?.locals?.[workspaceId];
 
-        const claims = await admin.auth().verifyIdToken(userToken);
-        const uid = claims?.uid || null;
-        const workspaceList = claims?.workspaces || [];
+        const { workspaceList, uid } = await verifyIdToken(userToken);
 
         if (!workspaceList.length) throw new Error(WORKSPACE_NOT_FOUND);
 
