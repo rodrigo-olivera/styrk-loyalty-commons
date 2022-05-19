@@ -7,6 +7,8 @@ export interface Transaction {
     status?: Status;
     request?: Object;
     gid: string;
+    createdBy?: string;
+    updatedBy?: string;
 }
 
 export const enum TransactionType {
@@ -23,4 +25,5 @@ export const enum Status {
     ERROR = "ERROR",
     FINISHED = "FINISHED",
     APLICATED = "APPLIED",
+    SETLEMENT = "SETTLEMENT",
 }
