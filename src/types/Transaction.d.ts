@@ -1,14 +1,14 @@
 export interface Transaction {
-    tid?: String;
+    tid?: string;
     type: TransactionType;
-    amount: Number;
-    createdAt?: String;
-    updatedAt?: String;
-    status?: Status;
-    request?: String;
-    gid: String;
-    createdBy?: String;
-    updatedBy?: String;
+    amount: number;
+    createdAt?: string;
+    updatedAt?: string;
+    status?: string;
+    request?: string;
+    gid: string;
+    createdBy?: string;
+    updatedBy?: string;
 }
 
 export const enum TransactionType {
