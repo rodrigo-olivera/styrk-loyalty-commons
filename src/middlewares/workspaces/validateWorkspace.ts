@@ -22,6 +22,8 @@ const validateWorkspace = async (app: express.Express, firestore: Firestore, req
         const claims = await admin.auth().verifyIdToken(userToken);
         const workspaceList = claims?.workspaces || [];
 
+        console.log(claims);
+
         if (!workspaceList.length) throw new Error(WORKSPACE_NOT_FOUND);
 
         const workspace = workspaceList.find(({ id }: { id: string }) => id === workspaceId);
