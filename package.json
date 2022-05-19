@@ -1,5 +1,5 @@
 {
-  "name": "@styrk-loyalty",
+  "name": "styrk-loyalty-commons",
   "version": "0.0.6",
   "description": "",
   "main": "lib/index.js",
