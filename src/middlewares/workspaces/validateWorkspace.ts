@@ -53,6 +53,7 @@ const validateWorkspace = async (app: express.Express, firestore: Firestore, req
             app.locals[workspaceId] = { ...workspaceData, workspace, workspaceRef, timestamp: currentTime };
         }
 
+        res.locals.requestId = requestId;
         res.locals.workspaceRef = workspaceRef;
         res.locals.requestUserId = uid;
         res.locals.workspaceData = app.locals[workspaceId]
