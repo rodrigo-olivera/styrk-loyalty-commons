@@ -1,6 +1,6 @@
 {
-  "name": "styrk-loyalty-commons",
-  "version": "0.0.5",
+  "name": "@styrk-loyalty",
+  "version": "0.0.6",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -13,9 +13,10 @@
     "node": ">=11.14"
   },
   "dependencies": {
+    "@google-cloud/firestore": "^5.0.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "@google-cloud/firestore": "^5.0.2"
+    "firebase-admin": "^10.2.0"
   },
   "devDependencies": {
     "@tsconfig/node16": "^1.0.2",
