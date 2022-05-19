@@ -20,9 +20,8 @@ const validateWorkspace = async (app: express.Express, firestore: Firestore, req
         const cachedWorkspaceData = app?.locals?.[workspaceId];
 
         const claims = await admin.auth().verifyIdToken(userToken);
+        const uid = claims?.uid || null;
         const workspaceList = claims?.workspaces || [];
-
-        console.log(claims);
 
         if (!workspaceList.length) throw new Error(WORKSPACE_NOT_FOUND);
 
@@ -52,6 +51,7 @@ const validateWorkspace = async (app: express.Express, firestore: Firestore, req
         }
 
         res.locals.workspaceRef = workspaceRef;
+        res.locals.requestUserId = uid;
         res.locals.workspaceData = app.locals[workspaceId]
     } catch (error) {
         next(error)
