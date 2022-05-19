@@ -10,4 +10,6 @@ export interface LoyaltyCard {
     isGiftcard?: boolean;
     cardName?:string;
     expiryDate?:string;
+    createdBy?:string;
+    updatedBy?:string;
 }
