@@ -1,5 +1,5 @@
 import { DocumentReference, Firestore } from "@google-cloud/firestore";
-import express, { NextFunction, Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 
 import { TOKEN_IS_NOT_VALID, USER_TOKEN_IS_REQUIRED, WORKSPACE_IS_REQUIRED, WORKSPACE_NOT_ACTIVE, WORKSPACE_NOT_FOUND } from "../../constants/errors.msg";
 import { FIVE_MIN } from "../../constants/operations.msg";
