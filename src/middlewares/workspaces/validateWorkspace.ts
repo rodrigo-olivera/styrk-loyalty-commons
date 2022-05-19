@@ -8,7 +8,7 @@ import { WORKSPACES } from "../../constants/routes.msg";
 
 const validateWorkspace = async (app: express.Express, firestore: Firestore, req: Request, res: Response, next: NextFunction) => {
     const workspaceId = req?.params?.workspaceId || null;
-    const userToken = req?.get('x-forwarded-authorization') || null;
+    const userToken = req?.get('x-forwarded-authorization')?.replace('Bearer ', '') || null;
 
     var currentTime = new Date();
 
