@@ -2,8 +2,8 @@ export interface Transaction {
     tid?: string;
     type: TransactionType;
     amount: number;
-    createdAt?: Date;
-    updatedAt?: Date;
+    createdAt?: String;
+    updatedAt?: String;
     status?: Status;
     request?: Object;
     gid: string;
