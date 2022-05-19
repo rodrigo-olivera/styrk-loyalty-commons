@@ -1,1 +1,0 @@
-{"version":3,"file":"logErrors.mdw.js","sourceRoot":"","sources":["../../../../src/middlewares/error/logErrors.mdw.ts"],"names":[],"mappings":";;AAEA,MAAM,SAAS,GAAG,CAAC,GAAQ,EAAE,GAAY,EAAE,GAAa,EAAE,IAAkB,EAAE,EAAE;IAC5E,OAAO,CAAC,KAAK,CAAC,GAAG,CAAC,CAAA;IAClB,IAAI,CAAC,GAAG,CAAC,CAAA;AACb,CAAC,CAAA;AAED,kBAAe,SAAS,CAAC"}

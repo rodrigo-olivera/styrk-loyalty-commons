@@ -6,7 +6,9 @@ import { FIVE_MIN } from "../../constants/operations.msg";
 import { WORKSPACES } from "../../constants/routes.msg";
 import verifyIdToken from "../../utils/verifyIdToken";
 
-const validateWorkspace = async (app: express.Express, firestore: Firestore, req: Request, res: Response, next: NextFunction) => {
+const firestore = new Firestore()
+
+const validateWorkspace = async (req: Request, res: Response, next: NextFunction) => {
     const workspaceId = req?.params?.workspaceId || null;
     const userToken = req?.get('x-forwarded-authorization')?.replace('Bearer ', '') || null;
     const requestId = req?.get('x-request-id') || '';
@@ -18,7 +20,7 @@ const validateWorkspace = async (app: express.Express, firestore: Firestore, req
         if (!userToken) throw new Error(USER_TOKEN_IS_REQUIRED);
 
         const workspaceRef: DocumentReference = firestore.collection(WORKSPACES).doc(workspaceId);
-        const cachedWorkspaceData = app?.locals?.[workspaceId];
+        const cachedWorkspaceData = req?.app?.locals?.[workspaceId];
 
         const { workspaceList, uid } = await verifyIdToken(userToken);
 
@@ -48,13 +50,13 @@ const validateWorkspace = async (app: express.Express, firestore: Firestore, req
 
             if (!active) throw new Error(WORKSPACE_NOT_ACTIVE);
 
-            app.locals[workspaceId] = { ...workspaceData, workspace, workspaceRef, timestamp: currentTime };
+            req.app.locals[workspaceId] = { ...workspaceData, workspace, workspaceRef, timestamp: currentTime };
         }
 
         res.locals.requestId = requestId;
         res.locals.workspaceRef = workspaceRef;
         res.locals.requestUserId = uid;
-        res.locals.workspaceData = app.locals[workspaceId]
+        res.locals.workspaceData = req?.app?.locals?.[workspaceId]
     } catch (error) {
         next(error)
     }
