@@ -25,8 +25,6 @@ const validateWorkspace = async (app: express.Express, firestore: Firestore, req
         if (!workspaceList.length) throw new Error(WORKSPACE_NOT_FOUND);
 
         const workspace = workspaceList.find(({ id }: { id: string }) => id === workspaceId);
-
-        console.log(workspace);
         
         if (!workspace) throw new Error(WORKSPACE_NOT_FOUND);
 
