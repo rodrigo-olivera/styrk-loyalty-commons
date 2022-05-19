@@ -5,8 +5,8 @@ const errorHandler = (err: any, req: Request, res: Response, next: NextFunction)
         const error = JSON.parse(err.message)
         const message = error?.message
         const status = error?.status
-        
-        console.log('error1', message, status, JSON.parse(err.message));
+
+        console.log('error1', message, status, typeof error, error);
 
         res.status(status || 500);
         res.send(message);
