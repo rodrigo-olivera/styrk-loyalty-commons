@@ -13,8 +13,8 @@ const validateWorkspace = async (app: express.Express, firestore: Firestore, req
     var currentTime = new Date();
 
     try {
-        if (!workspaceId) throw new Error(JSON.stringify(WORKSPACE_IS_REQUIRED));
-        if (!userToken) throw new Error(JSON.stringify(USER_TOKEN_IS_REQUIRED));
+        if (!workspaceId) throw new Error(WORKSPACE_IS_REQUIRED);
+        if (!userToken) throw new Error(USER_TOKEN_IS_REQUIRED);
 
         const workspaceRef: DocumentReference = firestore.collection(WORKSPACES).doc(workspaceId);
         const cachedWorkspaceData = app?.locals?.[workspaceId];
@@ -23,11 +23,11 @@ const validateWorkspace = async (app: express.Express, firestore: Firestore, req
         const uid = claims?.uid || null;
         const workspaceList = claims?.workspaces || [];
 
-        if (!workspaceList.length) throw new Error(JSON.stringify(WORKSPACE_NOT_FOUND));
+        if (!workspaceList.length) throw new Error(WORKSPACE_NOT_FOUND);
 
         const workspace = workspaceList.find(({ id }: { id: string }) => id === workspaceId);
 
-        if (!workspace) throw new Error(JSON.stringify(WORKSPACE_NOT_FOUND));
+        if (!workspace) throw new Error(WORKSPACE_NOT_FOUND);
 
         if (cachedWorkspaceData) {
             res.set('x-workspace-cache', 'true');
@@ -40,12 +40,12 @@ const validateWorkspace = async (app: express.Express, firestore: Firestore, req
 
             const workspaceSnapshot = await workspaceRef.get();
 
-            if (!workspaceSnapshot.exists) throw new Error(JSON.stringify(WORKSPACE_NOT_FOUND));
+            if (!workspaceSnapshot.exists) throw new Error(WORKSPACE_NOT_FOUND);
 
             const workspaceData = workspaceSnapshot?.data();
             const active = workspaceData?.active;
 
-            if (!active) throw new Error(JSON.stringify(WORKSPACE_NOT_ACTIVE));
+            if (!active) throw new Error(WORKSPACE_NOT_ACTIVE);
 
             app.locals[workspaceId] = { ...workspaceData, workspace, workspaceRef, timestamp: currentTime };
         }

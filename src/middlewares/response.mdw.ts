@@ -6,7 +6,7 @@ import sanitizeJson from "../utils/sanitizeJson";
 const response = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const response = res?.locals?.response;
-        if (!response) throw new Error(JSON.stringify(NO_RESPONSE_FOUND));
+        if (!response) throw new Error(NO_RESPONSE_FOUND);
 
         const sanitizedResponse = Array.isArray(response) ? response?.map(obj => sanitizeJson(obj)) : sanitizeJson(response);
 
