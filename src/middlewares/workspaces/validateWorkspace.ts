@@ -6,12 +6,6 @@ import { USER_TOKEN_IS_REQUIRED, WORKSPACE_IS_REQUIRED, WORKSPACE_NOT_ACTIVE, WO
 import { FIVE_MIN } from "../../constants/operations.msg";
 import { WORKSPACES } from "../../constants/routes.msg";
 
-// import serviceAccount from '../serviceAccountKey.json';
-
-// admin.initializeApp({
-//     credential: admin.credential.cert(serviceAccount as admin.ServiceAccount)
-// });
-
 const validateWorkspace = async (app: express.Express, firestore: Firestore, req: Request, res: Response, next: NextFunction) => {
     const workspaceId = req?.params?.workspaceId || null;
     const userToken = req?.get('X-Apigateway-Api-Userinfo') || null;
@@ -27,6 +21,8 @@ const validateWorkspace = async (app: express.Express, firestore: Firestore, req
 
         const claims = await admin.auth().verifyIdToken(userToken);
         const workspaceList = claims?.workspaces || [];
+
+        console.log(workspaceList);
 
         if (!workspaceList.length) throw new Error(WORKSPACE_NOT_FOUND);
 
