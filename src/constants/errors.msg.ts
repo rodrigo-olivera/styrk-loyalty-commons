@@ -32,5 +32,5 @@ export const WORKSPACE_IS_REQUIRED = JSON.stringify({ message: 'Workspace is req
 export const WORKSPACE_NOT_ACTIVE = JSON.stringify({ message: 'Workspace not active', status: 402 });
 export const WORKSPACE_NOT_FOUND = JSON.stringify({ message: 'Workspace not found', status: 500 });
 export const NO_WORKSPACE_FOUND_IN_CACHE = JSON.stringify({ message: 'No workspace found in cache, fetching...' });
-export const USER_TOKEN_IS_REQUIRED = JSON.stringify({ message: 'User token is required', status: 400 });
-export const UNABLE_TO_VERIFY_TOKEN = JSON.stringify({ message: 'Unable to verify token', status: 500 });
+export const USER_TOKEN_IS_REQUIRED = JSON.stringify({ message: 'User token is required', status: 401 });
+export const TOKEN_IS_NOT_VALID = JSON.stringify({ message: 'Token is not valid', status: 401 });

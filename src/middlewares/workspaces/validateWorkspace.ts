@@ -1,7 +1,7 @@
 import { DocumentReference, Firestore } from "@google-cloud/firestore";
 import express, { NextFunction, Request, Response } from "express";
 
-import { UNABLE_TO_VERIFY_TOKEN, USER_TOKEN_IS_REQUIRED, WORKSPACE_IS_REQUIRED, WORKSPACE_NOT_ACTIVE, WORKSPACE_NOT_FOUND } from "../../constants/errors.msg";
+import { TOKEN_IS_NOT_VALID, USER_TOKEN_IS_REQUIRED, WORKSPACE_IS_REQUIRED, WORKSPACE_NOT_ACTIVE, WORKSPACE_NOT_FOUND } from "../../constants/errors.msg";
 import { FIVE_MIN } from "../../constants/operations.msg";
 import { WORKSPACES } from "../../constants/routes.msg";
 import verifyIdToken from "../../utils/verifyIdToken";
@@ -22,7 +22,7 @@ const validateWorkspace = async (app: express.Express, firestore: Firestore, req
 
         const { workspaceList, uid } = await verifyIdToken(userToken);
 
-        if (!workspaceList.length) throw new Error(UNABLE_TO_VERIFY_TOKEN);
+        if (!workspaceList.length) throw new Error(TOKEN_IS_NOT_VALID);
 
         const workspace = workspaceList.find(({ id }: { id: string }) => id === workspaceId);
 
