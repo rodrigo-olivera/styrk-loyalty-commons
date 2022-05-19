@@ -5,7 +5,7 @@ export interface Transaction {
     createdAt?: String;
     updatedAt?: String;
     status?: Status;
-    request?: Object;
+    request?: string;
     gid: string;
     createdBy?: string;
     updatedBy?: string;
