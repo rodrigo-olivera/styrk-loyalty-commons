@@ -35,3 +35,4 @@ export const NO_WORKSPACE_FOUND_IN_CACHE = JSON.stringify({ message: 'No workspa
 export const USER_TOKEN_IS_REQUIRED = JSON.stringify({ message: 'User token is required', status: 401 });
 export const TOKEN_IS_NOT_VALID = JSON.stringify({ message: 'Token is not valid', status: 401 });
 export const MISSING_API_KEY = JSON.stringify({ message: 'Missing API key', status: 400 });
+export const APIKEY_ALREADY_EXISTS = JSON.stringify({ message: 'API key already exists', status: 400 });
