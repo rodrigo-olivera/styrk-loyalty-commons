@@ -36,3 +36,5 @@ export const USER_TOKEN_IS_REQUIRED = JSON.stringify({ message: 'User token is r
 export const TOKEN_IS_NOT_VALID = JSON.stringify({ message: 'Token is not valid', status: 401 });
 export const MISSING_API_KEY = JSON.stringify({ message: 'Missing API key', status: 400 });
 export const APIKEY_ALREADY_EXISTS = JSON.stringify({ message: 'API key already exists', status: 400 });
+export const APIKEY_DO_NOT_EXISTS = JSON.stringify({ message: 'API key does not exists', status: 400 });
+export const API_KEY_NAME_IS_REQUIRED = JSON.stringify({ message: 'API key name is required', status: 400 });
