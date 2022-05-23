@@ -27,4 +27,4 @@ export { API_KEY } from "./src/constants/headers.msg";
 export { HEX, ASC, DESC, EMAIL, GID, ID, NUMBER, PHONE, USER, USER_ID, VTEX, STYRK_LOYALTY, YEAR } from "./src/constants/keys.msg";
 export { ACCOUNT_IN_MEMORY } from "./src/constants/messages.msg";
 export { ARRAY_CONTAINS, EQUALS, FIVE_MIN } from "./src/constants/operations.msg";
-export { ACCOUNT, ACCOUNTS, LOYALTY_CARDS, TRANSACTIONS, WORKSPACES } from "./src/constants/routes.msg";
+export { ACCOUNT, ACCOUNTS, LOYALTY_CARDS, TRANSACTIONS, WORKSPACES, CLIENTS, EVENTS, PRODUCTS, PROMOTIONS, USERS } from "./src/constants/routes.msg";
