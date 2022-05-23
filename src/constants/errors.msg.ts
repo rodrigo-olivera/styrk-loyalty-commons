@@ -38,3 +38,4 @@ export const MISSING_API_KEY = JSON.stringify({ message: 'Missing API key', stat
 export const APIKEY_ALREADY_EXISTS = JSON.stringify({ message: 'API key already exists', status: 400 });
 export const APIKEY_DO_NOT_EXISTS = JSON.stringify({ message: 'API key does not exists', status: 400 });
 export const API_KEY_NAME_IS_REQUIRED = JSON.stringify({ message: 'API key name is required', status: 400 });
+export const USER_ID_IS_REQUIRED = JSON.stringify({ message: 'User ID is required', status: 400 });
