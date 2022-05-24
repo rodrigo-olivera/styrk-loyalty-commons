@@ -26,7 +26,7 @@ const validateWorkspace = async (req: Request, res: Response, next: NextFunction
 
         if (!workspaceList.length) throw new Error(TOKEN_IS_NOT_VALID);
 
-        const workspace = workspaceList.find(({ id }: { id: string }) => id === workspaceId);
+        const workspace = workspaceList.find((w: string) => w === workspaceId);
 
         if (!workspace) throw new Error(WORKSPACE_NOT_FOUND);
 
