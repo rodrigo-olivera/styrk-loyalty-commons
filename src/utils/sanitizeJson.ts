@@ -3,12 +3,14 @@ const sanitizeJson = (json: any) => {
     Object.keys(json).map((key: string) => {
         if (key.startsWith("_")) return delete sanitizedJson[key]
 
-        return Object.keys(sanitizedJson[key]).map((subKey: string) => {
+        if (sanitizedJson[key]) return Object.keys(sanitizedJson[key]).map((subKey: string) => {
             if (subKey.startsWith("_")) return delete sanitizedJson[key]
 
             return
         })
-    })   
+
+        return
+    })
 
     return sanitizedJson;
 }
