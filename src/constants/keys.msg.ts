@@ -10,6 +10,7 @@ export const GID = 'gid';
 export const STYRK_LOYALTY = 'styrkLoyalty';
 export const YEAR = 'year';
 export const HEX = 'hex';
+export const UID = 'uid';
 
 // Plugin Ids
 export const VTEX = 'VTEX';
