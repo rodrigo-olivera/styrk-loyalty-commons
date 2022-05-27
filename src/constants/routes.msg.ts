@@ -8,3 +8,4 @@ export const CLIENTS = 'clients';
 export const PRODUCTS = 'products';
 export const PROMOTIONS = 'promotions';
 export const EVENTS = 'events';
+export const INVITES = 'invites';
