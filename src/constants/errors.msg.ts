@@ -40,3 +40,4 @@ export const APIKEY_DO_NOT_EXISTS = JSON.stringify({ message: 'API key does not 
 export const API_KEY_NAME_IS_REQUIRED = JSON.stringify({ message: 'API key name is required', status: 400 });
 export const USER_ID_IS_REQUIRED = JSON.stringify({ message: 'User ID is required', status: 400 });
 export const USER_NOT_FOUND = JSON.stringify({ message: 'User not found', status: 500 });
+export const CLIENT_ID_IS_REQUIRED = JSON.stringify({ message: 'Client ID is required', status: 400 });
