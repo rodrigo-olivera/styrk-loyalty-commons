@@ -42,3 +42,4 @@ export const USER_ID_IS_REQUIRED = JSON.stringify({ message: 'User ID is require
 export const USER_NOT_FOUND = JSON.stringify({ message: 'User not found', status: 500 });
 export const CLIENT_ID_IS_REQUIRED = JSON.stringify({ message: 'Client ID is required', status: 400 });
 export const PRODUCT_ID_IS_REQUIRED = JSON.stringify({ message: 'Product ID is required', status: 400 });
+export const PRODUCT_ALLREADY_EXISTS = JSON.stringify({ message: 'Product already exists', status: 400 });
