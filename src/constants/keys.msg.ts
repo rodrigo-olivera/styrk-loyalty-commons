@@ -12,6 +12,7 @@ export const YEAR = 'year';
 export const HEX = 'hex';
 export const UID = 'uid';
 export const CID = 'cid';
+export const PID = 'pid';
 
 // Plugin Ids
 export const VTEX = 'VTEX';
