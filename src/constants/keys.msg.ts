@@ -13,6 +13,7 @@ export const HEX = 'hex';
 export const UID = 'uid';
 export const CID = 'cid';
 export const PID = 'pid';
+export const EID = 'eid';
 
 // Plugin Ids
 export const VTEX = 'VTEX';
