@@ -44,3 +44,5 @@ export const CLIENT_ID_IS_REQUIRED = JSON.stringify({ message: 'Client ID is req
 export const PRODUCT_ID_IS_REQUIRED = JSON.stringify({ message: 'Product ID is required', status: 400 });
 export const PRODUCT_ALLREADY_EXISTS = JSON.stringify({ message: 'Product already exists', status: 400 });
 export const EVENT_ID_IS_REQUIRED = JSON.stringify({ message: 'Event ID is required', status: 400 });
+export const EMAIL_PHONE_CID_REQUIRED = JSON.stringify({ message: 'Email, phone or cid is required', status: 400 });
+export const EVENT_NOT_FOUND = JSON.stringify({ message: 'Event not found', status: 500 });
