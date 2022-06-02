@@ -13,6 +13,8 @@ const validateWorkspace = async (req: Request, res: Response, next: NextFunction
     const userToken = req?.get('x-forwarded-authorization')?.replace('Bearer ', '') || null;
     const requestId = req?.get('x-request-id') || '';
 
+    console.log(req.headers)
+
     var currentTime = new Date();
 
     try {
